@@ -27,7 +27,7 @@ SECRET_KEY = '#vw(03o=(9kbvg!&2d5i!2$_58x@_-3l4wujpow6(ym37jxnza'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['http://127.0.0.1:8000/','127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1','jnriders.herokuapp.com']
 
 
 # Application definition
