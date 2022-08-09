@@ -1,2 +1,2 @@
 web:node index.js
-web: gunicorn --pythonpath ecommerce ecommerce.wsgi
+web: gunicorn ecommerce.wsgi
