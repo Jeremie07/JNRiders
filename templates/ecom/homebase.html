@@ -9,7 +9,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <title>JNRiders Guild Helmet Shop</title>
 
-<style>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
+
+<style type="text/css">
 body {
     background-color: #f7f7f7;
 }
@@ -140,12 +142,14 @@ body {
 
 .links {
     color: #fff;
+    font-size: 20px;
     text-decoration: none
 }
 
 .links:hover {
     color: #fff;
     text-decoration: none
+    font-size: 15px;
 }
 
 .profile-links {
@@ -250,7 +254,69 @@ body {
         margin: 0px
     }
 }
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  filter:alpha(opacity=70);
+  -moz-opacity:0.7;
+  -khtml-opacity: 0.7;
+  opacity: 0.7;
+  z-index: 100;
+  display: none;
+  }
+  .cnt223 a{
+  text-decoration: none;
+  }
+  .popup{
+  width: 100%;
+  height: 100%
+  margin: 0 auto;
+  display: none;
+  position: absolute;
+  z-index: 101;
+  }
+  .cnt223{
+  min-width: 700px;
+  width: 600px;
+  min-height: 400px;
+  margin: 100px auto;
+  background: #f3f3f3;
+  position: relative;
+  z-index: 103;
+  padding: 15px 35px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px #000;
+  }
+  .cnt223 p{
+  clear: both;
+      color: #555555;
+      /* text-align: justify; */
+      font-size: 20px;
+      font-family: sans-serif;
+  }
+  .cnt223 h2{
+  color: red;
+  font-weight: bold;
+  }
+  .cnt223 .x{
+  float: right;
+  height: 35px;
+  left: 22px;
+  position: relative;
+  top: -25px;
+  width: 34px;
+  }
+  .cnt223 .x:hover{
+  cursor: pointer;
+  }
+
 </style>
+
 </head>
 <body>
   {%if request.user.is_authenticated%}
@@ -292,13 +358,24 @@ body {
                 </div>
               </form>
             </div>
-
-
-            
         </div>
     </div>
 </div>
   {%endif%}
+
+  <div class='popup'>
+    <div class='cnt223'>
+      <a href='' class='close'><h2>Close</h2></a>
+
+    <h1>  <img src="https://scontent.fmnl17-2.fna.fbcdn.net/v/t1.15752-9/295679247_931939001528730_7743665697117661222_n.png?stp=dst-png_p1080x2048&_nc_cat=111&ccb=1-7&_nc_sid=ae9488&_nc_eui2=AeHgOgx4IIdqIfRK38jvEdHolmI4B2A8osSWYjgHYDyixElFxWADWT9rgm9Fml0Bk0aDYz2UmJlX3A2JRFKUPQD2&_nc_ohc=H4kX0Flj1osAX-9klQ1&_nc_ht=scontent.fmnl17-2.fna&oh=03_AVIrx3qRussYP_7fHXgApOFfAOpNXd4VqUXFKpcSwcb7VQ&oe=63167275"
+      style="width:250px; height:150px;" alt="some_text" class="center">Important Notice</h1>
+
+      <h2><p>This E-Commerce Website is Intended for Browsing the Gille Product Only!. That the JNRiders Guild Helmet Shop Selling</p></h2>
+    <br>
+    <h3><p>If you want to buy an Helmet please go to the "Contact Us" Page and use the Provided Information</p></h3>  
+    </div>
+    </div>
+
 
 <!-- content start-->
 {% block content %}
@@ -325,7 +402,9 @@ body {
     </div>
   </div>
 </footer>
-<script>
+
+
+<script type="text/javascript">
 $(document).ready(function(){
 
 function openNav() {
@@ -339,9 +418,30 @@ document.getElementById("mySidenav").style.width = "0";
 document.body.style.backgroundColor = "rgba(0,0,0,0)";
 }
 
-
 });
+
+$(function(){
+  var overlay = $('<div id="overlay"></div>');
+  overlay.show();
+  overlay.appendTo(document.body);
+  $('.popup').show();
+  $('.close').click(function(){
+  $('.popup').hide();
+  overlay.appendTo(document.body).remove();
+  return false;
+  });
+    
+  $('.x').click(function(){
+  $('.popup').hide();
+  overlay.appendTo(document.body).remove();
+  return false;
+  });
+  });
+
+
 </script>
 
+
 </body>
+
 </html>
